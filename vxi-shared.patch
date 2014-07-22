@@ -1,0 +1,37 @@
+--- vxi-0.0.20121221/configure.ac.orig	2012-12-21 19:57:04.000000000 +0100
++++ vxi-0.0.20121221/configure.ac	2014-07-22 17:53:46.140695136 +0200
+@@ -10,7 +10,7 @@
+ 
+ # Checks for programs.
+ AC_PROG_CC
+-AC_PROG_RANLIB
++LT_INIT
+ 
+ # Checks for libraries.
+ 
+--- vxi-0.0.20121221/Makefile.am.orig	2012-12-21 19:58:32.000000000 +0100
++++ vxi-0.0.20121221/Makefile.am	2014-07-22 17:56:27.760688353 +0200
+@@ -1,11 +1,11 @@
+-lib_LIBRARIES = libvxiclient.a libvxiserver.a
++lib_LTLIBRARIES = libvxiclient.la libvxiserver.la
+ 
+-nodist_libvxiclient_a_SOURCES = \
++nodist_libvxiclient_la_SOURCES = \
+ 	vxi_clnt.c \
+ 	vxi_intr_svr.c \
+ 	vxi_intr_xdr.c \
+ 	vxi_xdr.c
+-nodist_libvxiserver_a_SOURCES = \
++nodist_libvxiserver_la_SOURCES = \
+ 	vxi_intr_clnt.c \
+ 	vxi_intr_xdr.c \
+ 	vxi_svr.c \
+@@ -14,7 +14,7 @@
+ 	vxi.h \
+ 	vxi_intr.h
+ 
+-BUILT_SOURCES = $(nodist_libvxiclient_a_SOURCES) $(nodist_libvxiserver_a_SOURCES) $(nodist_include_HEADERS)
++BUILT_SOURCES = $(nodist_libvxiclient_la_SOURCES) $(nodist_libvxiserver_la_SOURCES) $(nodist_include_HEADERS)
+ CLEANFILES = $(BUILT_SOURCES)
+ 
+ %.h: %.x

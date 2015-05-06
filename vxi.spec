@@ -2,7 +2,7 @@ Summary:	VXI-11 RPC protocol libraries
 Summary(pl.UTF-8):	Biblioteki protokołu RPC VXI-11
 Name:		vxi
 Version:	0.0.20121221
-Release:	1
+Release:	2
 License:	Public Domain
 Group:		Libraries
 Source0:	http://www.librevisa.org/download/%{name}-%{version}.tar.gz
